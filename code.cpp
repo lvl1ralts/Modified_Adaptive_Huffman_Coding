@@ -279,36 +279,37 @@ vector<string> tokenize(const string& text) {
 int main() {
     AdaptiveHuffman coder;
 
-    string text = "I am a gay living in a gay world because the world is gay.";
-    cout << "Original Text:\n" << text << endl;
+    cout << "Enter text to encode and decode:\n> ";
+    string text;
+    getline(cin, text);
 
     vector<string> words = tokenize(text);
-    cout << "\nTokens to be encoded:" << endl;
-    for(const auto& w : words) cout << "'" << w << "' ";
-    cout << endl;
+
+    cout << "\nTokens to be encoded:\n";
+    for (const auto& w : words) cout << "'" << w << "' ";
+    cout << "\n";
 
     string compressed_data = coder.encode(words);
-    cout << "\nEncoded Bitstream (with raw symbols for new words):\n" << compressed_data << endl;
+    cout << "\nEncoded Bitstream:\n" << compressed_data << endl;
 
     AdaptiveHuffman decoder;
     string decompressed_text = decoder.decode(compressed_data);
-    cout << "\nDecompressed Text:\n" << decompressed_text << endl;
+    cout << "\nDecoded Text:\n" << decompressed_text << endl;
 
-    cout << "\nVerification:" << endl;
     stringstream ss;
-    for(size_t i = 0; i < words.size(); ++i) {
+    for (size_t i = 0; i < words.size(); ++i) {
         ss << words[i];
-        if (i < words.size() - 1 && words[i+1].length() >= 1) {
+        if (i < words.size() - 1 && !isspace(words[i+1][0])) {
             ss << " ";
         }
     }
     string reconstructed_original = ss.str();
 
+    cout << "\nVerification:\n";
     if (decompressed_text == reconstructed_original) {
-        cout << "Success! Decompressed text matches the original." << endl;
+        cout << "Success" << endl;
     } else {
-        cout << "Failure! Decompressed text does not match." << endl;
-        cout << "Original (reconstructed): " << reconstructed_original << endl;
+        cout << "Failure" << endl;
     }
 
     return 0;
