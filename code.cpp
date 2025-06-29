@@ -50,7 +50,6 @@ private:
     void update_tree(Node* start_node);
 };
 
-
 AdaptiveHuffman::AdaptiveHuffman() : next_node_number(512) {
 
     root = new Node(0, next_node_number--);
@@ -175,7 +174,6 @@ Node* AdaptiveHuffman::get_node_from_code(const string& code, size_t& pos) const
     return current;
 }
 
-
 void AdaptiveHuffman::add_new_symbol(const string& symbol) {
     Node* old_nyt = NYT_node;
 
@@ -208,7 +206,6 @@ Node* AdaptiveHuffman::find_leader_in_block(Node* node) {
     }
     return leader;
 }
-
 
 void AdaptiveHuffman::swap_nodes(Node* node1, Node* node2) {
     if (node1 == node2 || !node1->parent || !node2->parent || node1->parent == node2 || node2->parent == node1) {
