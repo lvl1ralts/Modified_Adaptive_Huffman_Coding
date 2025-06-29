@@ -2,7 +2,7 @@
 
 This repository contains an implementation of the **Modified Adaptive Huffman Coding** algorithm for large alphabets (whole words) as described in Mikhail Tokovarov’s 2017 paper. 
 
-[📄 View the Research Paper](docs/paper.pdf)
+[📄 View the Research Paper ](docs/paper.pdf)
 
 ---
 
