@@ -65,6 +65,10 @@ Shows how the word-level tree evolves as new tokens are added**
      ```
    - When the tree grows beyond a threshold, remove the lowest‑relevance leaves to bound memory.
 
+  **🖼️ Example of forgetting function operation — note how the word count levels off when forgetting is enabled.**
+  
+  ![Figure 4: Forgetting Mechanism Comparison](docs/figure4.png)  
+
 ---
 
 ## 🔧 Prerequisites
