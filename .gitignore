@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Build outputs
+build/
+dist/
+Debug/
+Release/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Coverage directory
+coverage/
+.nyc_output/
+
+# C++ build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+
+# IDE files
+*.user
+*.suo
+.vs/
+.vscode/
+
