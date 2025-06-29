@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 jspm_packages/
+/.env
 
 # Build outputs
 build/
@@ -26,12 +27,7 @@ coverage/
 *.o
 *.obj
 *.exe
-*.dll
-*.so
 
 # IDE files
-*.user
-*.suo
-.vs/
 .vscode/
 
