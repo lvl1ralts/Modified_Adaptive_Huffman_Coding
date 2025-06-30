@@ -2,7 +2,7 @@
 
 This repository contains an implementation of the **Modified Adaptive Huffman Coding** algorithm for large alphabets (whole words) as described in Mikhail Tokovarov’s 2017 paper. 
 
-[📄 View the Research Paper](docs/paper.pdf)
+[📄 View the Research Paper ](docs/paper.pdf)
 
 ---
 
@@ -57,17 +57,6 @@ Shows how the word-level tree evolves as new tokens are added**
    - Read bits until you match a leaf’s code:
      - If it’s a **normal** leaf, recover the word and update the tree.  
      - If it’s **NCW**, update NCW, then read 8‑bit ASCII chunks until `<DEL>`, reconstruct the new word, insert it, and update.  
-
-4. **Forgetting Mechanism**  
-   - Maintain a **relevance** score for each word:  
-     ```text
-     WF = sqrt(weight^2 + age^2)
-     ```
-   - When the tree grows beyond a threshold, remove the lowest‑relevance leaves to bound memory.
-
-  **🖼️ Example of forgetting function operation — note how the word count levels off when forgetting is enabled.**
-  
-  ![Figure 4: Forgetting Mechanism Comparison](docs/figure4.png)  
 
 ---
 
