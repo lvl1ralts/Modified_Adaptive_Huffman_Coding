@@ -6,15 +6,19 @@ This repository contains an implementation of the **Modified Adaptive Huffman Co
 
 ---
 
+# Chat-Huffman-Py
 
-- **code.cpp**  
-  The standalone C++ source implementing:
-  - Word‑level adaptive Huffman tree with separate NYT and NCW nodes  
-  - Encoding: reuse of known words, NCW+ASCII+`<DEL>` for new words  
-  - Decoding: bit‑by‑bit tree traversal, NCW detection, ASCII recovery  
-  - Forgetting: removal of low‑relevance words to bound memory  
+A modern Python 3 CLI chat application that **compresses** every message with a modified _Adaptive Huffman Coding_ algorithm before it hits the wire and **decompresses** it on arrival – saving bandwidth while remaining completely transparent to users.
 
-  
+---
+
+## Features
+
+• Word-level adaptive Huffman encoding with dedicated **NCW** (New-Coming-Word) and **NYT** (Not-Yet-Transmitted) leaves.  
+• Fully asynchronous TCP chat server supporting multiple clients.  
+• Lightweight CLI client (pure standard library).  
+• Zero third-party runtime dependencies.
+
 ---
 
 ## 📝 Introduction
@@ -58,12 +62,46 @@ Shows how the word-level tree evolves as new tokens are added**
      - If it’s a **normal** leaf, recover the word and update the tree.  
      - If it’s **NCW**, update NCW, then read 8‑bit ASCII chunks until `<DEL>`, reconstruct the new word, insert it, and update.  
 
----
+<!-----
 
 ## 🔧 Prerequisites
 
 - A modern C++ compiler (GCC, Clang, or MSVC) supporting C++11 or later.  
 - Standard C++ library—no external dependencies.
+
+---
+
+## Setup
+
+```bash
+# Clone or copy the repo and enter the directory
+$ cd chat_huffman_py
+
+# (Optional) create an isolated virtual environment
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+
+# Install requirements (none at runtime, but do it anyway for future extensibility)
+$ pip install -r requirements.txt
+```
+
+---
+
+## Starting the server
+
+```bash
+# Default port 9000
+$ python -m chat_huffman_py.server
+# Custom port
+$ python -m chat_huffman_py.server 1234
+```
+
+## Launching a client
+
+bash
+# Syntax: python -m chat_huffman_py.client <host> [port] [username]
+$ python -m chat_huffman_py.client 127.0.0.1 9000 Alice
+$ python -m chat_huffman_py.client 127.0.0.1 9000 Bob
 
 ---
 
@@ -93,7 +131,7 @@ Shows how the word-level tree evolves as new tokens are added**
 
       Verification:
       Success
-
+-->
 ---
 
 ## 📊 Performance & Compression
