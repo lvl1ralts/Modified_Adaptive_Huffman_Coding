@@ -54,13 +54,13 @@ Shows how the word-level tree evolves as new tokens are added**
    - Otherwise:
      1. Output the **NCW** node’s code.  
      2. Update the NCW node’s weight.  
-     3. Output the word’s ASCII bytes (8‑bit each) followed by a delimiter `<DEL>`.  
+     3. Output the word’s ASCII bytes (8‑bit each) followed by a delimiter.  
      4. Insert the new word under the old NYT node and update its weight.  
 
 3. **Decoding**  
    - Read bits until you match a leaf’s code:
      - If it’s a **normal** leaf, recover the word and update the tree.  
-     - If it’s **NCW**, update NCW, then read 8‑bit ASCII chunks until `<DEL>`, reconstruct the new word, insert it, and update.  
+     - If it’s **NCW**, update NCW, then read 8‑bit ASCII chunks until delimiter, reconstruct the new word, insert it, and update.  
 
 <!-----
 
